@@ -3,7 +3,6 @@ var express = require('express');
 var app = express();
 var PeerServer = require('peer').PeerServer;
 var server = PeerServer({port: 9000, path: '/myapp'});
-
 var Users = [];
 
 app.use(express.static(__dirname + '/public'));

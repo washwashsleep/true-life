@@ -10,7 +10,7 @@ peer.on('open', function(id) {
 });
 
 
-peer.on('connection', function(conn) { 
+peer.on('connection', function(conn) {
     console.log('on connection');
 
     window.temp_conn = conn;
