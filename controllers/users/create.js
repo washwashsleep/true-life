@@ -14,7 +14,7 @@ module.exports = function (req, res){
                 return cb(new Error('email 已經存在'));
             }
 
-            var options = _.pick(req.body, 'email', 'name', 'fb', 'line');
+            var options = _.pick(req.body, 'email', 'name', 'fb', 'line', 'sex');
 
             models.users.insert(options, cb);
         }
