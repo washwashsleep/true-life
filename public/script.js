@@ -5,6 +5,24 @@ peer.on('open', function(id) {
   	console.log('My peer ID is: ' + id);
 });
 
+
+peer.on('connection', function(conn) { 
+	console.log('on connection');
+
+	window.temp_conn = conn;
+	
+	conn.on('open', function() {
+		// Receive messages
+		conn.on('data', function(data) {
+			console.log('Received', data);
+		});
+
+		// Send messages
+		conn.send('Hello!');
+	});
+});
+
+
 peer.on('call', function(call) {
   	call.answer(window.localStream);
 
