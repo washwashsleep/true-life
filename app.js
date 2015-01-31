@@ -47,6 +47,7 @@ var controllers = require('./controllers');
 // 註冊會員
 app.get('/', controllers.root.home);
 app.get('/index', controllers.root.home);
+app.get('/start', controllers.root.start);
 // app.post('/users', controllers.users.create);
 
 

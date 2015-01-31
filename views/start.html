@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Demo</title>
+	</head>
+	<body ng-controller="baseCtrl">
+		<h1>Demo</h1>
+		
+		<div id="info">
+			<div>
+				<span>你的ID:</span> 
+				<span id="myId"></span>	
+			</div>	
+			<div>
+				<span>對方ID:</span>
+				<input type="text" id="theirId" />
+			</div>
+			<button id="btn-connect" type="button">連線!</button>
+		</div>
+
+		<div>
+			<video id="my-video" autoplay style="width: 45%;transform: rotateY(180deg);"></video>
+			<video id="their-video" autoplay style="width: 45%;transform: rotateY(180deg);"></video>
+		</div>
+
+		<script src="/jquery/dist/jquery.min.js"></script>
+		<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
+		<script src="/js/script.js"></script>
+	</body>
+</html>
+
+
+
