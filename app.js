@@ -11,7 +11,7 @@ var users = [];
 app.engine('html', require('swig').renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(require('path').join(__dirname, '/public')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -44,7 +44,9 @@ app.use('/myapp', expresspeerserver);
 var controllers = require('./controllers');
 
 // 註冊會員
-app.post('/users', controllers.users.create);
+app.get('/', controllers.root.home);
+app.get('/index', controllers.root.home);
+// app.post('/users', controllers.users.create);
 
 
 server.listen(9000, function () {
