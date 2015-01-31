@@ -7,6 +7,12 @@ var session = require('cookie-session');
 
 var users = [];
 
+// view engine setup
+app.engine('html', require('swig').renderFile);
+app.set('view engine', 'html');
+app.set('views', __dirname + '/views');
+app.use(express.static(path.join(__dirname, '/public')));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -17,7 +23,6 @@ app.use(session({
     maxAge: 1000 * 60
   }
 }));
-app.use(express.static(__dirname + '/public'));
 
 
 var server = require('http').createServer(app);
