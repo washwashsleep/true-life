@@ -4,7 +4,7 @@ angular.module('lifeTrue', [])
     $scope.theirId = null;
     $scope.myId = 'peer' + parseInt( Math.random()*1e7 , 10);
     $scope.videoSrc = null;
-    peer = new Peer($scope.myId, {host: 'localhost', port: 9000, path: '/myapp'});
+    peer = new Peer(myId, {host: '128.199.223.114', port: 3344, path: '/myapp'});
 
     peer.on('open', function(id) {
       console.log('My peer ID is: ' + id);
