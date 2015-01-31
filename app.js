@@ -12,6 +12,7 @@ app.engine('html', require('swig').renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use(express.static(require('path').join(__dirname, '/public')));
+app.use(express.static(__dirname + '/bower_components'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
