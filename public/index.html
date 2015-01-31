@@ -1,40 +1,31 @@
-<html>
+<html ng-app="lifeTrue">
 	<head>
 		<title>Demo</title>
 	</head>
-	<body>
-
-
+	<body ng-controller="baseCtrl">
 		<h1>Demo</h1>
-
+		
 		<div id="info">
-
 			<div>
-				你的ＩＤ: 
-				<span id="myId"></span>	
+				<span>你的ID:</span> 
+				<span id="myId">{{myId}}</span>	
 			</div>	
-			
 			<div>
-				對方ＩＤ：
-				<input type="text" id="theirId" />
+				<span>對方ID:</span>
+				<input type="text" id="theirId" ng-model="theirId" />
 			</div>
-			
-			<button id="btn-connect" type="button">連線!</button>
-
+			<button id="btn-connect" type="button" ng-click="tryConnect(theirId)">連線!</button>
 		</div>
 
-		<div style="width: 90%">
-			<video id="my-video" autoplay style="width: 45%">123456</video>
-			<video id="their-video" autoplay style="width: 45%">123456</video>
+		<div>
+			<video id="my-video" autoplay style="width: 45%;transform: rotateY(180deg);"></video>
+			<video id="their-video" autoplay style="width: 45%;transform: rotateY(180deg);"></video>
 		</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
-		<script src="/script.js"></script>
-
-
-
-
+		<script src="/angular/angular.js"></script>
+		<script src="/app.js"></script>
 	</body>
 </html>
 

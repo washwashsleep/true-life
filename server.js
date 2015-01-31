@@ -6,6 +6,7 @@ var server = PeerServer({port: 9000, path: '/myapp'});
 var Users = [];
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/bower_components'));
 
 
 server.on('connection', function(id) { 
