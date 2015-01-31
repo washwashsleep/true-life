@@ -1,5 +1,5 @@
 var myId = 'peer' + parseInt( Math.random()*1e7 , 10);
-var peer = new Peer(myId, {host: 'localhost', port: 9000, path: '/myapp'});
+var peer = new Peer(myId, {host: '128.199.223.114', port: 3344, path: '/myapp'});
 // var peer = new Peer(myId, {
 //     key: 'j2qmsjunc7zdj9k9'
 //     // host: 'localhost', port: 9000, path: '/myapp'
