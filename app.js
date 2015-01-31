@@ -1,9 +1,24 @@
 var express = require('express');
-var app = express();
+global.app = express();
 var ExpressPeerServer = require('peer').ExpressPeerServer;
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('cookie-session');
+
 var users = [];
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use(session({
+  key: 'sessionId',
+  secret: 'session_cookie_secret+sdjfiawe958723',
+  cookie: {
+    maxAge: 1000 * 60
+  }
+}));
 app.use(express.static(__dirname + '/public'));
+
 
 var server = require('http').createServer(app);
 var expresspeerserver = ExpressPeerServer(server, {
@@ -17,9 +32,15 @@ expresspeerserver.on('connection', function (id) {
 
 app.use('/myapp', expresspeerserver);
 
-app.get('/Qoo', function (req, res) {
-    res.json(users);
-});
+
+/*
+ * api 
+ */
+var controllers = require('./controllers');
+
+// 註冊會員
+app.post('/users', controllers.users.create);
+
 
 server.listen(9000, function () {
     var host = server.address().address;
