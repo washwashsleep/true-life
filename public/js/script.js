@@ -5,7 +5,8 @@ var peer = new Peer(myId, {host: 'localhost', port: 9000, path: '/myapp'});
 //     key: 'j2qmsjunc7zdj9k9'
 //     // host: 'localhost', port: 9000, path: '/myapp'
 // }); 
-
+$('.cover').hide();
+$(".select-box").slideDown();
 peer.on('open', function(id) {
     console.log('My peer ID is: ' + id);
 });
@@ -39,18 +40,20 @@ peer.on('call', function(call) {
 
 
 navigator.getUserMedia =  navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-//
 
 function getMyStream () {
 
     navigator.getUserMedia({audio: true, video: true}, function (stream) {
-        
+        $('.cover').hide();
+        $(".select-box").slideDown();
         console.log(stream);
         $('#my-video').prop('src', URL.createObjectURL(stream));
         
         window.localStream = stream;
 
-    }, function(){ console.log('error'); });
+    }, function(){ 
+        console.log('error'); 
+    });
 }
 
 function tryConnect(theirId) {

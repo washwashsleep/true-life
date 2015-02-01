@@ -1,0 +1,81 @@
+body{
+  margin: 0;
+  overflow: hidden;
+}
+.cover{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  line-height: 60px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+.cover>p{
+  font-size: 40px;
+  margin: 0;
+}
+#their-video, #my-video{
+  transform: rotateY(180deg);
+  background: url('/img/loading.gif') center center;
+  background-color: #000;
+  width: 90%;
+}
+.clear{
+  clear: both;
+}
+.chat > div {
+  float: left;
+  height: 100%;
+}
+/*.chat > .center-line{
+  width: 1%;
+  height: 100%;
+}*/
+.select-box{
+  display: none;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 150px;
+  background-color: rgba(74,17,174,.5);
+  z-index: 10;
+}
+#like{
+  background: url(/img/like.jpg);
+  background-size: 200%;
+  background-position-y: -20px;
+  border-radius: 75;
+}
+#unlike{
+  background: url(/img/like.jpg);
+  background-size: 200%;
+  background-position-x: 147px;
+  background-position-y: -20px;
+  border-radius: 75;
+}
+.select-box > div:hover{
+  
+  cursor: pointer;
+}
+.select-box > div{
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+}
+.chat > .left-chat{
+  background: #47a3da;
+  width: 50%;
+  outline: 1px solid #47a3da;
+}
+.chat > .right-chat{
+  outline: 1px solid #fff;
+  width: 50%;
+  background: #fd6a62;
+}
+.chat-body {
+  text-align: center;
+}
