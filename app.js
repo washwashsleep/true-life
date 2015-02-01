@@ -65,6 +65,8 @@ app.post('/login', controllers.users.login);
 app.get('/logout', controllers.users.logout);
 
 app.get('/userPeer', controllers.userPeers.getPeer);
+app.get('/callOn/:peerId', controllers.userPeers.callOn);
+app.get('/callOff/:peerId', controllers.userPeers.callOff);
 
 // 喜歡或不喜歡
 app.post('/likes', controllers.likes.create);
