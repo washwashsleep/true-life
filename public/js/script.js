@@ -2,12 +2,12 @@
 var peer, localCall = null;
 var myId = 'u' + (window.userId || '') + 'peer' + parseInt( Math.random()*1e7 , 10);
 
-// var peer = new Peer(myId, {host: '128.199.223.114', port: 3344, path: '/myapp'});
-peer = new Peer(myId, {
-	host: 'localhost',
-	port: 9000,
-	path: '/myapp'
-});
+var peer = new Peer(myId, {host: '128.199.223.114', port: 9000, path: '/myapp'});
+// peer = new Peer(myId, {
+// 	host: 'localhost',
+// 	port: 9000,
+// 	path: '/myapp'
+// });
 
 // 與伺服器建立 peer 連線成功
 peer.on('open', function(id) {
