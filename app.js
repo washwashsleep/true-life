@@ -55,6 +55,7 @@ var controllers = require('./controllers');
 app.get('/', controllers.root.home);
 app.get('/index', controllers.root.home);
 app.get('/start', controllers.root.start);
+app.get('/scheduling', controllers.root.scheduling)
 
 // 註冊
 app.post('/users', controllers.users.create);

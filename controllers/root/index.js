@@ -1,4 +1,5 @@
 module.exports = {
     home: require('./home'),
-    start: require('./start')
+    start: require('./start'),
+    scheduling: require('./scheduling')
 };
