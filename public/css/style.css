@@ -118,6 +118,11 @@ box-shadow: 2px 2px 22px #3d3d3d;
   background-position-y: -20px;*/
   border-radius: 75;
 }
+.select-box > div a{
+  width:150px;
+  height:150px;
+  display: block;
+}
 #bad{
   background: url(/img/bad.png);
   background-size: 100%;
