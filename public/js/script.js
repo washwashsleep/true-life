@@ -79,7 +79,9 @@ function getMyStream () {
         $('#my-video').prop('src', URL.createObjectURL(stream));
 
         window.localStream = stream;
-
+        setTimeout(function(){
+            getPeer()
+        });
     }, function(){
         console.log('error');
     });
@@ -113,12 +115,18 @@ function tryConnect(theirId) {
 
 function getPeer(){
   $.ajax('/userPeer').done(function (data){
-    if (!data) return console.log('發生錯誤請重新整理');
+    if (!data){
+        location.href = '/start';
+        return console.log('發生錯誤請重新整理');
+    }
 
     // TODO 因為後端不知道 peerId 所以偷懶，
     // TODO 這邊要判斷是不是拿到自己的，如果是的話要重試幾次確認是否真的沒有別人 ＴＴ
     if(data == myId) {
       console.log('拿到自己id');
+      setTimeout(function(){ 
+          tryConnect(data);
+      }, 3000);
     }else{
       console.log('data', data);
       tryConnect(data);
@@ -129,10 +137,14 @@ function getPeer(){
 
 function postSelect(target) {
     target.data.userId = localCall.peer
-    console.log(target.data)
-    $.post( "/likes", target.data);
-    // console.log(localCall.peer)
-    // console.log (targe.data)
+    $.post("/likes", target.data).done(function (data) {
+        console.log(data);
+        alert( "second success" );
+    })
+    .fail(function (data) {
+        console.log(data);
+        alert( "error" );
+    });
 }
 
 function setCallOn(id) {
