@@ -47,6 +47,7 @@ peer.on('call', function(call) {
 
     call.on('stream', function(stream) {
         console.log('call on steam');
+        $(".buttononpeer").hide();
         $('#their-video').prop('src', URL.createObjectURL(stream));
         setTimeout(function(){
             $(".select-box").slideDown();
@@ -103,6 +104,7 @@ function tryConnect(theirId) {
 
     call.on('stream', function(stream) {
         console.log('call on stream');
+        $(".buttononpeer").hide();
         setTimeout(function(){
             $(".select-box").slideDown();
         }, 3000);
@@ -111,10 +113,12 @@ function tryConnect(theirId) {
 }
 
 function getPeer(){
+    $(".buttononpeer").attr("disabled", true);
   $.ajax('/userPeer').done(function (data){
     if (!data){
         // location.href = '/start';
         alert('您沒有配對到唷～請重新再一發吧！');
+        $(".buttononpeer").attr("disabled", false);
         return console.log('發生錯誤請重新整理');
     }
 
@@ -123,9 +127,13 @@ function getPeer(){
     if(data == myId) {
       console.log('拿到自己id');
       alert('您沒有配對到唷～請重新再一發吧！');
+      $(".buttononpeer").attr("disabled", false);
+      
     }else{
       console.log('data', data);
       tryConnect(data);
+      
+
     }
 
   });
@@ -175,10 +183,9 @@ $(document).ready(function() {
     $('#like').on('click', {userId : '', like: 1}, postSelect);
     $('#unlike').on('click', {userId : '', unlike: 1}, postSelect);
     $('#bad').on('click', {userId : ''}, postReports);
-    $('#connection').on('click', function(){ getPeer(); });
     $( ".buttononpeer" ).click(function() {
-  getPeer();
-});
+      getPeer();
+    });
     // 取得相機權限
     getMyStream();
 
