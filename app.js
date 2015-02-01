@@ -61,6 +61,9 @@ app.post('/users', controllers.users.create);
 
 // 登入
 app.post('/login', controllers.users.login);
+// 登出
+app.post('/logout', controllers.users.logout);
+
 app.get('/userPeer', controllers.userPeers.getPeer);
 
 // 喜歡或不喜歡
