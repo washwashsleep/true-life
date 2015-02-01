@@ -39,7 +39,7 @@ expresspeerserver.on('connection', function (id) {
 
 expresspeerserver.on('disconnect', function (id) {
   userPeers.remove(id);
-  console.log('new connection, id is : %s', id);
+  console.log('peer disconnect, : %s', id);
   userPeers.show();
 });
 
@@ -48,7 +48,7 @@ app.use('/myapp', expresspeerserver);
 
 
 /*
- * api 
+ * api
  */
 var controllers = require('./controllers');
 
