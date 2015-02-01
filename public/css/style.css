@@ -88,6 +88,7 @@ body{
   height: 150px;
   background-color: rgba(74,17,174,.5);
   z-index: 10;
+  text-align: center;
 }
 .select-box > div{
   margin:0 5%;
