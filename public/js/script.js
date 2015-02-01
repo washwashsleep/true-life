@@ -114,6 +114,7 @@ function getPeer(){
   $.ajax('/userPeer').done(function (data){
     if (!data){
         // location.href = '/start';
+        alert('您沒有配對到唷～請重新再一發吧！');
         return console.log('發生錯誤請重新整理');
     }
 
@@ -121,6 +122,7 @@ function getPeer(){
     // TODO 這邊要判斷是不是拿到自己的，如果是的話要重試幾次確認是否真的沒有別人 ＴＴ
     if(data == myId) {
       console.log('拿到自己id');
+      alert('您沒有配對到唷～請重新再一發吧！');
     }else{
       console.log('data', data);
       tryConnect(data);
