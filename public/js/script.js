@@ -79,9 +79,6 @@ function getMyStream () {
         $('#my-video').prop('src', URL.createObjectURL(stream));
 
         window.localStream = stream;
-        setTimeout(function(){
-            getPeer()
-        });
     }, function(){
         console.log('error');
     });
@@ -124,9 +121,6 @@ function getPeer(){
     // TODO 這邊要判斷是不是拿到自己的，如果是的話要重試幾次確認是否真的沒有別人 ＴＴ
     if(data == myId) {
       console.log('拿到自己id');
-      setTimeout(function(){ 
-          tryConnect(data);
-      }, 3000);
     }else{
       console.log('data', data);
       tryConnect(data);
@@ -135,15 +129,32 @@ function getPeer(){
   });
 }
 
-function postSelect(target) {
-    target.data.userId = localCall.peer
-    $.post("/likes", target.data).done(function (data) {
+function postReports(target) {
+    target.data.userId = localCall.peer;
+    $.post("/reports", target.data).done(function (data) {
         console.log(data);
-        alert( "second success" );
+        alert('放心！我會為你報仇的！');
+        location.href = '/';
     })
     .fail(function (data) {
         console.log(data);
-        alert( "error" );
+        alert( "資料庫可能被Simon攻擊, 馬上為您修復！" );
+        location.href = '/';
+    });
+} 
+
+
+function postSelect(target) {
+    target.data.userId = localCall.peer;
+    $.post("/likes", target.data).done(function (data) {
+        console.log(data);
+        alert('祝你有個好結果');
+        location.href = '/';
+    })
+    .fail(function (data) {
+        console.log(data);
+        alert( "資料庫可能被Simon攻擊, 馬上為您修復！" );
+        location.href = '/';
     });
 }
 
@@ -158,10 +169,11 @@ function setCallOff(id) {
 $(document).ready(function() {
 
     $('#myId').html(myId);
-    $('[data-toggle="tooltip"]').tooltip()
-    $('#like').on('click', {userId : '', like: 1}, postSelect)
-    $('#unlike').on('click', {userId : '', unlike: 1}, postSelect)
-    // $('#bad').on('click', {}, postSelect)
+    $('[data-toggle="tooltip"]').tooltip();
+    $('#like').on('click', {userId : '', like: 1}, postSelect);
+    $('#unlike').on('click', {userId : '', unlike: 1}, postSelect);
+    $('#bad').on('click', {userId : ''}, postReports);
+    $('#connection').on('click', function(){ getPeer(); });
     // 取得相機權限
     getMyStream();
 
