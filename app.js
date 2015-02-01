@@ -61,6 +61,10 @@ app.post('/users', controllers.users.create);
 
 app.get('/userPeer', controllers.userPeers.getPeer);
 
+// 喜歡或不喜歡
+app.post('/likes', controllers.likes.create);
+
+
 server.listen(9000, function () {
     var host = server.address().address;
     var port = server.address().port;
