@@ -41,13 +41,21 @@ module.exports = function (req, res){
     ], function (err, newLike){
         if(err){
             console.log(err);
-            return res.send(err);
+            res.json({
+                error: err
+            });
+            return;
         }
 
         if(!newLike){
-            return res.send(new Error('無法創建個人喜好'));
+            res.json({
+                error: new Error('找不到 like')
+            });
+            return;
         }
 
-        res.redirect('/');
+        res.json({
+            data: newLike
+        });
     });
 };
