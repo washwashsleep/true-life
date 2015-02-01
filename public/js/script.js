@@ -130,7 +130,7 @@ function getPeer(){
 }
 
 function postReports(target) {
-    target.data.userId = localCall.peer;
+    target.data.userId = localCall.peer.substr(1, 24);
     $.post("/reports", target.data).done(function (data) {
         console.log(data);
         alert('放心！我會為你報仇的！');
@@ -145,7 +145,7 @@ function postReports(target) {
 
 
 function postSelect(target) {
-    target.data.userId = localCall.peer;
+    target.data.userId = localCall.peer.substr(1, 24);
     $.post("/likes", target.data).done(function (data) {
         console.log(data);
         alert('祝你有個好結果');
