@@ -59,6 +59,7 @@ app.get('/start', controllers.root.start);
 // 註冊
 app.post('/users', controllers.users.create);
 
+app.get('/userPeer', controllers.userPeers.getPeer);
 
 server.listen(9000, function () {
     var host = server.address().address;
