@@ -1,6 +1,51 @@
-body{
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+    margin: 0;
   overflow: hidden;
+  min-width: 800px;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body{
+
 }
 .cover{
   position: fixed;
@@ -44,6 +89,15 @@ body{
   background-color: rgba(74,17,174,.5);
   z-index: 10;
 }
+.select-box > div{
+  margin:0 5%;
+}
+.select-box > div:hover{
+  -moz-box-shadow: 2px 2px 22px #3d3d3d;
+-webkit-box-shadow: 2px 2px 22px #3d3d3d;
+box-shadow: 2px 2px 22px #3d3d3d;
+
+}
 #like{
   background: url(/img/like.jpg);
   background-size: 200%;
@@ -57,8 +111,20 @@ body{
   background-position-y: -20px;
   border-radius: 75;
 }
+#back{
+  background: url(/img/back.png);
+  background-size: 100%;
+  /*background-position-x: 147px;
+  background-position-y: -20px;*/
+  border-radius: 75;
+}
+#bad{
+  background: url(/img/bad.png);
+  background-size: 100%;
+  border-radius: 75;
+}
 .select-box > div:hover{
-  
+
   cursor: pointer;
 }
 .select-box > div{
@@ -78,4 +144,12 @@ body{
 }
 .chat-body {
   text-align: center;
+}
+.chat-title h2 {
+padding: 20px;
+margin: 0 auto;
+text-align: center;
+color: #fff;
+text-shadow:-1px 1px 5px #000000;
+font-size: 25px;
 }
