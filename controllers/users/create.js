@@ -44,6 +44,10 @@ module.exports = function (req, res){
                 return cb(new Error('沒有 sex'));
             }
 
+            options.likeCount = 0;
+            options.unlikeCount = 0;
+            options.reportCount = 0;
+
             cb(null, options);
         },
 

@@ -1,6 +1,7 @@
 var async = require('async');
 var models = require('../../models');
 var _ = require('lodash');
+var mongojs = require('mongojs');
 
 module.exports = function (req, res){
     async.waterfall([
@@ -37,25 +38,50 @@ module.exports = function (req, res){
                 type: options.like ? 'like' : 'unlike',
                 creater: req.session.user._id
             }, cb);
-        }
+        },
+
+        function (newLike, cb){
+
+            if(!newLike){
+                return res.json({ error: new Error('找不到 like') });
+            }
+
+            if(newLike.type === 'like'){
+                var updateData = {
+                    $inc:{ likeCouter: 1 }
+                };
+            }
+
+            if(newLike.type === 'unlike'){
+                var updateData = {
+                    $inc:{ unlikeCouter: 1 }
+                };
+            }
+
+            models.users.update({
+                _id: mongojs.ObjectId(newLike.userId)
+            }, updateData, function (err, updateUser){
+                if(err){
+                    return res.json({error: err});
+                }
+
+                if(!updateUser){
+                    return res.json({error: new Error('更新使用者失敗')});
+                }
+
+                cb(null, newLike);
+            });
+        },
     ], function (err, newLike){
         if(err){
             console.log(err);
-            res.json({
-                error: err
-            });
-            return;
+            return res.json({ error: err });
         }
 
         if(!newLike){
-            res.json({
-                error: new Error('找不到 like')
-            });
-            return;
+            return res.json({ error: new Error('找不到 like') });
         }
 
-        res.json({
-            data: newLike
-        });
+        res.json({ data: newLike });
     });
 };
