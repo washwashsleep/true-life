@@ -5,7 +5,7 @@ var _ = require('lodash');
 module.exports = function (req, res){
     async.waterfall([
         function checkLogin(cb){
-            
+
             if(!req.session.user){
                 console.log('找不到 req.session.user');
                 return res.redirect('/');
@@ -35,7 +35,7 @@ module.exports = function (req, res){
             models.likes.insert({
                 user: options.userId,
                 type: options.like ? 'like' : 'unlike',
-                creater: req.session.user.id
+                creater: req.session.user._id
             }, cb);
         }
     ], function (err, newLike){
