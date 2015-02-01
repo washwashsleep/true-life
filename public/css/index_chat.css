@@ -5911,7 +5911,7 @@ img-crop canvas {
         background-size: 29px auto;
     }
 }
-@font-face {
+/*@font-face {
     font-family: 'CitrixSansLight';
     src: url('../fonts/citrixsans-light.eot');
     src: url('../fonts/citrixsans-light.eot') format('embedded-opentype'), url('../fonts/citrixsans-light.woff') format('woff'), url('../fonts/citrixsans-light.ttf') format('truetype'), url('../fonts/citrixsans-light.svg#CitrixSans') format('svg');
@@ -5920,7 +5920,7 @@ img-crop canvas {
     font-family: 'CitrixSansRegular';
     src: url('../fonts/citrixsans-regular.eot');
     src: url('../fonts/citrixsans-regular.eot') format('embedded-opentype'), url('../fonts/citrixsans-regular.woff') format('woff'), url('../fonts/citrixsans-regular.ttf') format('truetype'), url('../fonts/citrixsans-regular.svg#CitrixSans') format('svg');
-}
+}*/
 .font-citrix-regular, .page, .page h2, .page h3, .landing-page .splash .content .features, .landing-page .splash .learn-more, .landing-page .how-it-works .steps .step p, .landing-page .share-your-work p, .landing-page .testimonials p, .landing-page .follow-our-blog p, .landing-page .upgrade-to-pro h2, .landing-page .upgrade-to-pro p, .page-scheduling header h1, .page-scheduling p, .upgrade, .waiting-message h2, .bottom-bar .btn-link, .chat .message-input textarea, .add-file-overlay, .add-file-overlay .drop-area .media h3, .sharing-options h2, .select-browser-sharing p, .stream-video .overlay .inner>*, .top-bar .btn, .settings nav, .dashboard h2, .dashboard .content .inner p {
     font-family: 'CitrixSansRegular', Helvetica, Arial, sans-serif;
 }
@@ -5930,13 +5930,13 @@ img-crop canvas {
 .font-arial, .add-file-overlay .drop-area .media .bd h3, .add-file-overlay .drop-area .media .bd p {
     font-family: Arial, Helvetica, sans-serif;
 }
-@font-face {
+/*@font-face {
     font-family: 'g2m-icons-filled';
     src: url('../fonts/g2m-icons-filled.eot?uw1kps');
     src: url('../fonts/g2m-icons-filled.eot?#iefixuw1kps') format('embedded-opentype'), url('../fonts/g2m-icons-filled.woff?uw1kps') format('woff'), url('../fonts/g2m-icons-filled.ttf?uw1kps') format('truetype'), url('../fonts/g2m-icons-filled.svg?uw1kps#g2m-icons-filled') format('svg');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 [class^="icon-"], [class*=" icon-"] {
     font-family: 'g2m-icons-filled';
     speak: none;
@@ -7513,7 +7513,7 @@ background: #0D2D47;
 }
 .landing-page .share-your-work {
     background-color: #0D2D47;
-    background-image: url(/assets/images/landing-page/section-share-screen-photo.jpg);
+
     background-position: 0% 0%;
     background-repeat: no-repeat;
     color: white;
@@ -7655,7 +7655,6 @@ background: #0D2D47;
 }
 .landing-page .follow-our-blog {
     background-color: #0D2D47;
-    background-image: url(/assets/images/landing-page/section-follow-blog-photo.jpg);
     color: #fff;
 }
 .landing-page .follow-our-blog h2 {

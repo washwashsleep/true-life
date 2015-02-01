@@ -26,8 +26,8 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1;
     margin: 0;
-  overflow: hidden;
-  min-width: 800px;
+  /*overflow: hidden;*/
+  /*min-width: 800px;*/
 }
 ol, ul {
   list-style: none;
@@ -128,8 +128,8 @@ box-shadow: 2px 2px 22px #3d3d3d;
 -webkit-border-radius: 75px 75px 75px 75px;
 }
 .select-box > div a{
-  width:150px;
-  height:150px;
+  width:10%;
+  height:75%;
   display: block;
 }
 #bad{
