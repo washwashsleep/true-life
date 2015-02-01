@@ -15,7 +15,6 @@ module.exports = function (req, res){
             }
 
             var options = _.pick(req.body, 'email', 'password', 'name', 'fb', 'line', 'sex');
-
             cb(null, options);
         },
 
@@ -52,8 +51,10 @@ module.exports = function (req, res){
             models.users.insert(options, cb);
         }
     ], function (err, newUser){
+
         if(err){
-            return err;
+            console.log(err);
+            return res.send(err);
         }
 
         req.session.user = _.pick(newUser, 'email', 'name', 'fb', 'line', 'sex');

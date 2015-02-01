@@ -5,6 +5,7 @@ var _ = require('lodash');
 module.exports = function (req, res){
     async.waterfall([
         function checkLogin(cb){
+            
             if(!req.session.user){
                 console.log('找不到 req.session.user');
                 return res.redirect('/');
@@ -39,6 +40,7 @@ module.exports = function (req, res){
         }
     ], function (err, newLike){
         if(err){
+            console.log(err);
             return res.send(err);
         }
 
