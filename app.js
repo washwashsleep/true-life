@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('cookie-session');
 
-var users = [];
+var userPeers = require('./userPeers');
 
 // view engine setup
 app.engine('html', require('swig').renderFile);
@@ -32,9 +32,17 @@ var expresspeerserver = ExpressPeerServer(server, {
 });
 
 expresspeerserver.on('connection', function (id) {
-    users.push(id);
-    console.log('new connection, id is : %s', id);
+  userPeers.add(id);
+  console.log('new connection, id is : %s', id);
+  userPeers.show();
 });
+
+expresspeerserver.on('disconnect', function (id) {
+  userPeers.remove(id);
+  console.log('new connection, id is : %s', id);
+  userPeers.show();
+});
+
 
 app.use('/myapp', expresspeerserver);
 
