@@ -55,7 +55,7 @@ peer.on('call', function(call) {
       console.log('call on close');
       localCall = null;
       setCallOff(myId);
-      setcallOff(call.peer);
+      setCallOff(call.peer);
     });
 
     call.on('error', function(e){
@@ -72,7 +72,6 @@ function getMyStream () {
 
     navigator.getUserMedia({audio: false, video: true}, function (stream) {
         $('.cover').hide();
-        
         console.log('取回相機stream', stream);
         $('#my-video').prop('src', URL.createObjectURL(stream));
 
