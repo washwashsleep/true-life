@@ -86,6 +86,10 @@ function getMyStream () {
 
 function tryConnect(theirId) {
 
+    if(localCall){
+      localCall.close();
+    }
+
     console.log('嘗試與 %s 建立連線', theirId);
 
     var conn = peer.connect(theirId);
@@ -94,6 +98,8 @@ function tryConnect(theirId) {
     if (!call) {
         return alert('連線錯誤');
     }
+
+    localCall = call;
 
     call.on('stream', function(stream) {
         console.log('call on stream');

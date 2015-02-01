@@ -10434,3 +10434,19 @@ background: #0D2D47;
 .dashboard .footer li a {
     margin-left: 12px;
 }
+.login-page .btn-block{
+    width: 20%;
+}
+.login-page .modal-content{
+    background: #efefef;
+}
+.login-page .form-control{
+    height: 48px;
+    margin: 13px auto;
+}
+.login-page .form-signin .btn-block{
+    width: 20%;
+}
+.signup-page{
+    display: none;
+}
