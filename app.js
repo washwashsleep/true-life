@@ -59,6 +59,9 @@ app.get('/start', controllers.root.start);
 // 註冊
 app.post('/users', controllers.users.create);
 
+// 喜歡或不喜歡
+app.post('/likes', controllers.likes.create);
+
 
 server.listen(9000, function () {
     var host = server.address().address;
