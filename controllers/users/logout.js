@@ -1,4 +1,4 @@
 module.exports = function (req, res){
-    res.session.user = null;
+    req.session.user = null;
     res.redirect('/');
 };

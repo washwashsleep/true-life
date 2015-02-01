@@ -42,7 +42,7 @@ module.exports = function (req, res){
             return res.redirect('/');
         }
 
-        req.session.user = {};
+        req.session.user = user;
 
         res.redirect('/');
     });
