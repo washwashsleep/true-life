@@ -138,7 +138,7 @@ function setCallOff(id) {
 $(document).ready(function() {
 
     $('#myId').html(myId);
-
+    $('[data-toggle="tooltip"]').tooltip()
     // 取得相機權限
     getMyStream();
 
