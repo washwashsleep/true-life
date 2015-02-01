@@ -48,6 +48,9 @@ peer.on('call', function(call) {
     call.on('stream', function(stream) {
         console.log('call on steam');
         $('#their-video').prop('src', URL.createObjectURL(stream));
+        setTimeout(function(){ 
+            $(".select-box").slideDown();
+        }, 3000);
     });
 
     //Firefox does not yet support this event.
@@ -124,8 +127,10 @@ function getPeer(){
   });
 }
 
-function postSelect(targe) {
-    $.post( "/like", targe.data);
+function postSelect(target) {
+    target.data.userId = localCall.peer
+    console.log(target.data)
+    $.post( "/likes", target.data);
     // console.log(localCall.peer)
     // console.log (targe.data)
 }
@@ -142,8 +147,8 @@ $(document).ready(function() {
 
     $('#myId').html(myId);
     $('[data-toggle="tooltip"]').tooltip()
-    $('#like').on('click', {userId : localCall.peer, like: 1}, postSelect)
-    $('#unlike').on('click', {userId : localCall.peer, unlike: 1}, postSelect)
+    $('#like').on('click', {userId : '', like: 1}, postSelect)
+    $('#unlike').on('click', {userId : '', unlike: 1}, postSelect)
     // $('#bad').on('click', {}, postSelect)
     // 取得相機權限
     getMyStream();
