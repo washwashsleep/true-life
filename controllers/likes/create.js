@@ -40,32 +40,32 @@ module.exports = function (req, res){
             }, cb);
         },
 
-        function (newLike, cb){
+        function (newLike, status, cb){
 
             if(!newLike){
                 return res.json({ error: new Error('找不到 like') });
             }
 
+            var updateData;
             if(newLike.type === 'like'){
-                var updateData = {
-                    $inc:{ likeCouter: 1 }
+                updateData = {
+                    $inc:{ likeCount : 1 }
                 };
-            }
-
-            if(newLike.type === 'unlike'){
-                var updateData = {
-                    $inc:{ unlikeCouter: 1 }
+            }else {
+                updateData = {
+                    $inc:{ unlikeCount : 1 }
                 };
             }
 
             models.users.update({
                 _id: mongojs.ObjectId(newLike.userId)
-            }, updateData, function (err, updateUser){
+            }, updateData, function (err, status){
+
                 if(err){
                     return res.json({error: err});
                 }
 
-                if(!updateUser){
+                if(!status.ok){
                     return res.json({error: new Error('更新使用者失敗')});
                 }
 

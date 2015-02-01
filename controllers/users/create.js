@@ -61,7 +61,7 @@ module.exports = function (req, res){
             return res.send(err);
         }
 
-        req.session.user = _.pick(newUser, 'email', 'name', 'fb', 'line', 'sex');
+        req.session.user = _.pick(newUser, '_id', 'email', 'name', 'fb', 'line', 'sex');
 
         res.redirect('/');
     });
