@@ -65,7 +65,7 @@ app.post('/login', controllers.users.login);
 app.get('/logout', controllers.users.logout);
 
 // 檢舉
-app.get('/reports', controllers.users.report);
+app.post('/reports', controllers.users.report);
 
 app.get('/userPeer', controllers.userPeers.getPeer);
 app.get('/callOn/:peerId', controllers.userPeers.callOn);

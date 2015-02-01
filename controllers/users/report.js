@@ -1,6 +1,7 @@
 var async = require('async');
 var models = require('../../models');
 var _ = require('lodash');
+var mongojs = require('mongojs');
 
 module.exports = function (req, res){
     async.waterfall([
@@ -22,6 +23,29 @@ module.exports = function (req, res){
                 userId: req.body.userId,
                 repoter: req.session.user._id,
             }, cb);
+        },
+
+        function (newReport, status, cb){
+
+            if(!newReport){
+                return res.json({ error: new Error('找不到 report') });
+            }
+
+            models.users.update({
+                _id: mongojs.ObjectId(newReport.userId)
+            }, {
+                $inc:{ reportCount : 1 }
+            }, function (err, status){
+                if(err){
+                    return res.json({error: err});
+                }
+
+                if(!status.ok){
+                    return res.json({error: new Error('更新使用者失敗')});
+                }
+
+                cb(null, newReport);
+            });
         }
     ], function (err, newReport){
         if(err){
