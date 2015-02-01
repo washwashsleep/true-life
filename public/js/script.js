@@ -72,11 +72,7 @@ function getMyStream () {
 
     navigator.getUserMedia({audio: false, video: true}, function (stream) {
         $('.cover').hide();
-        setTimeout(function(){ 
-            $(".select-box").slideDown();
-        }, 3000);
         
-
         console.log('取回相機stream', stream);
         $('#my-video').prop('src', URL.createObjectURL(stream));
 
@@ -106,6 +102,9 @@ function tryConnect(theirId) {
 
     call.on('stream', function(stream) {
         console.log('call on stream');
+        setTimeout(function(){ 
+            $(".select-box").slideDown();
+        }, 3000);
         $('#their-video').prop('src', URL.createObjectURL(stream));
     });
 }
@@ -119,12 +118,17 @@ function getPeer(){
     if(data == myId) {
       console.log('拿到自己id');
     }else{
-
       console.log('data', data);
       tryConnect(data);
     }
 
   });
+}
+
+function postSelect(targe) {
+    $.post( "/like", targe.data);
+    // console.log(localCall.peer)
+    // console.log (targe.data)
 }
 
 function setCallOn(id) {
@@ -139,11 +143,10 @@ $(document).ready(function() {
 
     $('#myId').html(myId);
     $('[data-toggle="tooltip"]').tooltip()
+    $('#like').on('click', {userId : localCall.peer, like: 1}, postSelect)
+    $('#unlike').on('click', {userId : localCall.peer, unlike: 1}, postSelect)
+    // $('#bad').on('click', {}, postSelect)
     // 取得相機權限
     getMyStream();
 
-    // 綁定連線按鈕
-    $('#btn-connect').on('click', function(){
-        tryConnect( $('#theirId').val() );
-    });
 });
