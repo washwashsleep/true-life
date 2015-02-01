@@ -56,6 +56,8 @@ module.exports = function (req, res){
             return err;
         }
 
+        req.session.user = _.pick(newUser, 'email', 'name', 'fb', 'line', 'sex');
+
         res.redirect('/');
     });
 };
