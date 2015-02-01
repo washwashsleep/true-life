@@ -58,9 +58,8 @@ module.exports = function (req, res){
             }
 
             models.users.update({
-                _id: mongojs.ObjectId(newLike.userId)
+                _id: mongojs.ObjectId(newLike.user)
             }, updateData, function (err, status){
-
                 if(err){
                     return res.json({error: err});
                 }
