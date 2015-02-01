@@ -41,7 +41,7 @@
                             <a href="/start" class="btn btn-primary" analytics="click, button, home.start">開始視訊</a>
                         </div>
                         <a href="/scheduling" class="btn btn-default " analytics="click, button, home.schedule">評分表</a>
-                        {% if user %}
+                        {% if !user %}
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".login-page">登入/註冊</button>
                         {% else %}
                         <button type="button" class="btn btn-primary logout">{{name}} 登出</button>
