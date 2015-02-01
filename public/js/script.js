@@ -38,17 +38,28 @@ peer.on('call', function(call) {
     return false;
   }
 
+  console.log('on call', call);
   localCall = call;
+  setCallOn(myId);
+  setCallOn(call.peer);
 
     call.answer(window.localStream);
 
     call.on('stream', function(stream) {
+        console.log('call on steam');
         $('#their-video').prop('src', URL.createObjectURL(stream));
     });
 
     //Firefox does not yet support this event.
     call.on('close', function(){
+      console.log('call on close');
       localCall = null;
+      setCallOff(myId);
+      setcallOff(call.peer);
+    });
+
+    call.on('error', function(e){
+      console.log('call on error', e);
     });
 
 });
@@ -62,7 +73,8 @@ function getMyStream () {
     navigator.getUserMedia({audio: true, video: true}, function (stream) {
         $('.cover').hide();
         $(".select-box").slideDown();
-        console.log(stream);
+
+        console.log('取回相機stream', stream);
         $('#my-video').prop('src', URL.createObjectURL(stream));
 
         window.localStream = stream;
@@ -84,10 +96,35 @@ function tryConnect(theirId) {
     }
 
     call.on('stream', function(stream) {
+        console.log('call on stream');
         $('#their-video').prop('src', URL.createObjectURL(stream));
     });
 }
 
+function getPeer(){
+  $.ajax('/userPeer').done(function (data){
+    if (!data) return console.log('發生錯誤請重新整理');
+
+    // TODO 因為後端不知道 peerId 所以偷懶，
+    // TODO 這邊要判斷是不是拿到自己的，如果是的話要重試幾次確認是否真的沒有別人 ＴＴ
+    if(data == myId) {
+      console.log('拿到自己id');
+    }else{
+
+      console.log('data', data);
+      tryConnect(data);
+    }
+
+  });
+}
+
+function setCallOn(id) {
+  $.ajax('/callOn/' + id);
+}
+
+function setCallOff(id) {
+  $.ajax('callOff/' + id );
+}
 
 $(document).ready(function() {
 
