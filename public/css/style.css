@@ -103,21 +103,28 @@ box-shadow: 2px 2px 22px #3d3d3d;
   background: url(/img/like.jpg);
   background-size: 200%;
   background-position-y: -20px;
-  border-radius: 75;
+  border-radius: 75px 75px 75px 75px;
+-moz-border-radius: 75px 75px 75px 75px;
+-webkit-border-radius: 75px 75px 75px 75px;
+
 }
 #unlike{
   background: url(/img/like.jpg);
   background-size: 200%;
   background-position-x: 147px;
   background-position-y: -20px;
-  border-radius: 75;
+  border-radius: 75px 75px 75px 75px;
+-moz-border-radius: 75px 75px 75px 75px;
+-webkit-border-radius: 75px 75px 75px 75px;
 }
 #back{
   background: url(/img/back.png);
   background-size: 100%;
   /*background-position-x: 147px;
   background-position-y: -20px;*/
-  border-radius: 75;
+  border-radius: 75px 75px 75px 75px;
+-moz-border-radius: 75px 75px 75px 75px;
+-webkit-border-radius: 75px 75px 75px 75px;
 }
 .select-box > div a{
   width:150px;
@@ -127,7 +134,9 @@ box-shadow: 2px 2px 22px #3d3d3d;
 #bad{
   background: url(/img/bad.png);
   background-size: 100%;
-  border-radius: 75;
+  border-radius: 75px 75px 75px 75px;
+-moz-border-radius: 75px 75px 75px 75px;
+-webkit-border-radius: 75px 75px 75px 75px;
 }
 .select-box > div:hover{
 
