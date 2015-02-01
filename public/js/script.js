@@ -48,7 +48,7 @@ peer.on('call', function(call) {
     call.on('stream', function(stream) {
         console.log('call on steam');
         $('#their-video').prop('src', URL.createObjectURL(stream));
-        setTimeout(function(){ 
+        setTimeout(function(){
             $(".select-box").slideDown();
         }, 3000);
     });
@@ -103,7 +103,7 @@ function tryConnect(theirId) {
 
     call.on('stream', function(stream) {
         console.log('call on stream');
-        setTimeout(function(){ 
+        setTimeout(function(){
             $(".select-box").slideDown();
         }, 3000);
         $('#their-video').prop('src', URL.createObjectURL(stream));
@@ -113,7 +113,7 @@ function tryConnect(theirId) {
 function getPeer(){
   $.ajax('/userPeer').done(function (data){
     if (!data){
-        location.href = '/start';
+        // location.href = '/start';
         return console.log('發生錯誤請重新整理');
     }
 
@@ -141,7 +141,7 @@ function postReports(target) {
         alert( "資料庫可能被Simon攻擊, 馬上為您修復！" );
         location.href = '/';
     });
-} 
+}
 
 
 function postSelect(target) {
@@ -174,6 +174,9 @@ $(document).ready(function() {
     $('#unlike').on('click', {userId : '', unlike: 1}, postSelect);
     $('#bad').on('click', {userId : ''}, postReports);
     $('#connection').on('click', function(){ getPeer(); });
+    $( ".buttononpeer" ).click(function() {
+  getPeer();
+});
     // 取得相機權限
     getMyStream();
 
