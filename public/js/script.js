@@ -70,9 +70,12 @@ navigator.getUserMedia =  navigator.getUserMedia || navigator.webkitGetUserMedia
 
 function getMyStream () {
 
-    navigator.getUserMedia({audio: true, video: true}, function (stream) {
+    navigator.getUserMedia({audio: false, video: true}, function (stream) {
         $('.cover').hide();
-        $(".select-box").slideDown();
+        setTimeout(function(){ 
+            $(".select-box").slideDown();
+        }, 3000);
+        
 
         console.log('取回相機stream', stream);
         $('#my-video').prop('src', URL.createObjectURL(stream));
@@ -134,8 +137,6 @@ function setCallOff(id) {
 
 $(document).ready(function() {
 
-    $('.cover').hide();
-    $(".select-box").slideDown();
     $('#myId').html(myId);
 
     // 取得相機權限
