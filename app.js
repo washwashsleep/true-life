@@ -67,6 +67,9 @@ app.get('/logout', controllers.users.logout);
 // 檢舉
 app.post('/reports', controllers.users.report);
 
+// 人氣列表
+app.get('/hots', controllers.users.hot);
+
 app.get('/userPeer', controllers.userPeers.getPeer);
 app.get('/callOn/:peerId', controllers.userPeers.callOn);
 app.get('/callOff/:peerId', controllers.userPeers.callOff);
