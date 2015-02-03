@@ -79,7 +79,7 @@ app.get('/callOff/:peerId', controllers.userPeers.callOff);
 app.post('/likes', controllers.likes.create);
 
 
-server.listen(9000, function () {
+server.listen(process.env.PORT || 9000, function () {
     var host = server.address().address;
     var port = server.address().port;
 

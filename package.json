@@ -2,7 +2,7 @@
   "name": "peejs0131",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "npm install && bower install && node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +19,8 @@
     "mongojs": "^0.18.1",
     "peer": "~0.2.8",
     "swig": "^1.4.2"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
