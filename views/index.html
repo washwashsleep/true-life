@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
     <head>
+        <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-26352916-13', 'auto');
+        ga('send', 'pageview');
+        </script>
         <title ng-bind="洗洗睡">洗洗睡</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -21,7 +29,6 @@
         <![endif]-->
     </head>
     <body class="">
-
         <section class="landing-page" id="landing-page">
             <section class="splash">
                 <div class="content-wrapper">
@@ -42,9 +49,9 @@
                         </div>
                         <a href="/scheduling" class="btn btn-default " analytics="click, button, home.schedule">評分表</a>
                         {% if !user %}
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".login-page">登入/註冊</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".login-page">登入/註冊</button>
                         {% else %}
-                        <button type="button" class="btn btn-primary logout">{{name}} 登出</button>
+                            <button type="button" class="btn btn-primary logout">{{name}} 登出</button>
                         {% endif %}
                         <div class="modal fade login-page" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -64,10 +71,10 @@
                                         <label for="inputName" class="sr-only">暱稱</label>
                                         <input type="text" name="name" class="form-control" placeholder="暱稱" required="" autofocus="">
                                         <label class="radio-inline">
-                                          <input type="radio" name="sex" value="boy" checked=""> 男生
+                                            <input type="radio" name="sex" value="boy" checked=""> 男生
                                         </label>
                                         <label class="radio-inline">
-                                          <input type="radio" name="sex" value="girl"> 女生
+                                            <input type="radio" name="sex" value="girl"> 女生
                                         </label>
                                         <label for="inputName" class="sr-only">電子信箱</label>
                                         <input type="email" name="email" class="form-control" placeholder="電子信箱" required="" autofocus="">
@@ -197,12 +204,12 @@
     <script src="/jquery/dist/jquery.min.js"></script>
     <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript">
-        $('.signup-btn').click(function(){
-            $('.login-fuck').hide();
-            $('.signup-page').show();
-        });
-        $(".logout").click(function(){
-            location.href = '/logout';
-        });
+    $('.signup-btn').click(function(){
+    $('.login-fuck').hide();
+    $('.signup-page').show();
+    });
+    $(".logout").click(function(){
+    location.href = '/logout';
+    });
     </script>
 </html>
