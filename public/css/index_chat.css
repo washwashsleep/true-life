@@ -10454,13 +10454,25 @@ background: #0D2D47;
   padding: 0px;
 }
 #diologIndex .modal-header{
+  background: #318ace;
+  color: #fff;
   position: initial;
   border-bottom: 1px solid #e5e5e5;
   font-weight: bold;
   height: 100%;
   width: 100%;
 }
+#diologIndex .modal-title{
+  text-align: left;
+  -webkit-font-smoothing: auto;
+}
 #diologIndex .modal-dialog button.close{
   position: initial;
   margin-right: 0;
+  color: #000;
+  opacity: .2;
 }
+.modal-body{
+  color: red;
+}
+
