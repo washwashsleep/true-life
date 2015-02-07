@@ -3,7 +3,7 @@ var myId = 'u' + (window.userId || '') + 'peer' + parseInt(Math.random() * 1e7, 
 
 var peer = new Peer(myId, {
     host: '128.199.223.114',
-    port: 3344,
+    port: 9000,
     path: '/myapp'
 });
 
@@ -205,15 +205,6 @@ $(document).ready(function() {
     $(".buttononpeer").click(function() {
         getPeer();
     });
-
-    alert('test');
-    if ($('.info').attr('data-info')) {
-        // alert($('.info').attr('dasta-info'));
-        // console.log($('.info').attr('data-info'));
-        console.log('aaaa');
-        // $('.info').text($('info').attr('data-info'));
-        // $('#indexDialog').modal('show');
-    }
 
     // 取得相機權限
     getMyStream();
