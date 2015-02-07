@@ -4,6 +4,7 @@ var ExpressPeerServer = require('peer').ExpressPeerServer;
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('cookie-session');
+var flash = require('connect-flash');
 
 var userPeers = require('./userPeers');
 
@@ -13,7 +14,6 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.use(express.static(require('path').join(__dirname, '/public')));
 app.use(express.static(__dirname + '/bower_components'));
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -24,6 +24,7 @@ app.use(session({
     maxAge: 1000 * 60
   }
 }));
+app.use(flash());
 
 
 var server = require('http').createServer(app);
@@ -77,6 +78,15 @@ app.get('/callOff/:peerId', controllers.userPeers.callOff);
 
 // 喜歡或不喜歡
 app.post('/likes', controllers.likes.create);
+
+// app.all('/flash', function(req, res){
+//   req.flash('test', 'it worked');
+//   res.redirect('/test')
+// });
+ 
+// app.all('/test', function(req, res){
+//   res.send(JSON.stringify(req.flash('test')));
+// });
 
 
 server.listen(process.env.PORT || 9000, function () {

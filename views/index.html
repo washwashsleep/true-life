@@ -19,6 +19,8 @@
         <meta property="og:url" content="url" />
         <meta property="og:image" content="url" />
         <meta property="g2m:apiToken" content="" />
+        <script src="/jquery/dist/jquery.min.js"></script>
+        <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="/css/index_chat.css">
@@ -28,9 +30,38 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
         <![endif]-->
     </head>
-    <body class="">
+    <body>
+<!--         <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="diologIndex">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content dialogIndex" data-info="{{ info }}">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myLargeModalLabel">貼心小提醒</h4>
+                    </div>
+                    <div class="modal-body">
+                        {{ info }}
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        
         <section class="landing-page" id="landing-page">
             <section class="splash">
+
+                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="diologIndex">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content dialogIndex" data-info="{{ info }}">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                <h4 class="modal-title" id="myLargeModalLabel">貼心小提醒</h4>
+                            </div>
+                            <div class="modal-body">
+                                {{ info }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
                 <div class="content-wrapper">
                     <header>
                         <img class="logo-header" src="/img/logo.png" alt="">
@@ -201,8 +232,6 @@
             </section>
         </section>
     </body>
-    <script src="/jquery/dist/jquery.min.js"></script>
-    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript">
     $('.signup-btn').click(function(){
     $('.login-fuck').hide();
@@ -211,5 +240,8 @@
     $(".logout").click(function(){
     location.href = '/logout';
     });
+    if($('.dialogIndex').attr('data-info')){
+    $('#diologIndex').modal('show');
+    }
     </script>
 </html>
