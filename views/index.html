@@ -56,7 +56,7 @@
                                 <h4 class="modal-title" id="myLargeModalLabel">貼心小提醒</h4>
                             </div>
                             <div class="modal-body">
-                                {{ info }}
+                                <h4 class="info"></h4>
                             </div>
                         </div>
                     </div>
@@ -241,7 +241,10 @@
     location.href = '/logout';
     });
     if($('.dialogIndex').attr('data-info')){
-    $('#diologIndex').modal('show');
+        var text = $('.dialogIndex').attr('data-info');
+        $('.info').text(text);
+        $('#diologIndex').modal('show');
     }
+
     </script>
 </html>
