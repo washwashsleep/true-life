@@ -10475,4 +10475,6 @@ background: #0D2D47;
 .modal-body{
   color: red;
 }
-
+.modal-backdrop.in{
+  z-index: 0;
+}

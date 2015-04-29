@@ -4,6 +4,7 @@ var _ = require('lodash');
 
 
 module.exports = function (req, res){
+    console.log(123);
     async.waterfall([
         function checkUser(cb){
             models.users.findOne({ email: req.body.email }, cb);
