@@ -2,8 +2,8 @@ var peer, localCall = null;
 var myId = 'u' + (window.userId || '') + 'peer' + parseInt(Math.random() * 1e7, 10);
 
 var peer = new Peer(myId, {
-    host: 'true-life-square.co/',
-    port: 80,
+    host: 'localhost',
+    port: 9001,
     path: '/myapp'
 });
 
